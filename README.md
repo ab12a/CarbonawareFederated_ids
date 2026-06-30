@@ -2,43 +2,161 @@
 
 ## Project Overview
 
-This project investigates whether carbon-aware scheduling can reduce the computational cost of federated learning-based intrusion detection systems while maintaining acceptable detection accuracy.
+This repository contains the implementation developed for the undergraduate dissertation:
 
-The proposed framework combines Federated Learning (FL) with a Random Forest intrusion detection model. Training rounds are executed only when simulated carbon intensity values remain below a predefined threshold.
+**Carbon-Aware Federated Learning for Energy-Efficient Intrusion Detection in Distributed IoT Networks**
+
+The project investigates whether carbon-aware scheduling can reduce unnecessary computational activity during federated learning while maintaining effective intrusion detection performance.
+
+The proposed framework combines a Random Forest-based Intrusion Detection System (IDS) with a simulated Federated Learning (FL) environment. A carbon-aware scheduler monitors simulated carbon intensity values and allows training to proceed only when the carbon intensity remains below a predefined threshold.
+
+---
+
+## Features
+
+- Centralized baseline Random Forest IDS
+- Carbon-aware Federated Learning simulation
+- Five simulated federated clients
+- Threshold-based carbon-aware scheduling
+- Automatic generation of experimental results and visualisations
+- Performance evaluation using standard IDS metrics
+
+---
 
 ## Dataset
 
-NSL-KDD Intrusion Detection Dataset
+This project uses the **NSL-KDD Intrusion Detection Dataset**.
 
-- Normal traffic = 0
-- Attack traffic = 1
+Class labels:
 
-## Project Components
+- **0** – Normal network traffic
+- **1** – Malicious network traffic (Attack)
 
-### Baseline IDS
-A centralized Random Forest intrusion detection system trained on the NSL-KDD dataset.
+The repository includes:
 
-### Carbon-Aware Federated IDS
-A simulated federated learning environment where clients participate in training only during low-carbon periods.
+```text
+data/
+├── KDDTrain+.txt
+└── KDDTest+.txt
+```
 
-### Evaluation Metrics
+Original dataset source:
+
+https://www.unb.ca/cic/datasets/nsl.html
+
+---
+
+## Project Files
+
+### `base_ids.py`
+
+Implements the centralized Random Forest Intrusion Detection System used to establish the baseline performance.
+
+### `final_federated_carbon_sim.py`
+
+Implements the Carbon-Aware Federated Learning framework by:
+
+- partitioning the dataset across five clients
+- performing local Random Forest training
+- simulating global model aggregation
+- applying carbon-aware scheduling
+- generating experimental results
+- automatically creating visualisations
+
+---
+
+## Generated Results
+
+Running the federated simulation automatically creates:
+
+```text
+results/
+├── federated_results.csv
+├── carbon_intensity_chart.png
+└── accuracy_bar_chart.png
+```
+
+The baseline IDS additionally generates:
+
+```text
+results/
+└── baseline_results.txt
+```
+
+---
+
+## Evaluation Metrics
+
+The framework evaluates model performance using:
+
 - Accuracy
 - Precision
 - Recall
 - F1-Score
 
-## Results
+---
 
-Experimental results indicate that the carbon-aware scheduling approach can reduce training activity while maintaining detection accuracy between approximately 77% and 79%.
+## Installation
+
+Install the required Python libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+Required libraries:
+
+- pandas
+- numpy
+- matplotlib
+- scikit-learn
+
+---
+
+## Running the Project
+
+Run the baseline IDS:
+
+```bash
+python base_ids.py
+```
+
+Run the Carbon-Aware Federated Learning simulation:
+
+```bash
+python final_federated_carbon_sim.py
+```
+
+---
 
 ## Repository Structure
 
 ```text
-Results/
-├── accuracy_plot.png
-├── baseline_results.txt
-└── federated_results.txt
+CarbonawareFederated_ids/
+│
+├── data/
+│   ├── KDDTrain+.txt
+│   └── KDDTest+.txt
+│
+├── results/
+│   ├── baseline_results.txt
+│   ├── federated_results.csv
+│   ├── carbon_intensity_chart.png
+│   └── accuracy_bar_chart.png
+│
+├── base_ids.py
+├── final_federated_carbon_sim.py
+├── README.md
+├── requirements.txt
+└── LICENSE
+```
 
-base_ids.py
-federated_carbon_sim.py
-plot.py
+---
+
+## Dissertation
+
+This repository accompanies the undergraduate dissertation:
+
+**Carbon-Aware Federated Learning for Energy-Efficient Intrusion Detection in Distributed IoT Networks**
+
+The implementation demonstrates that carbon-aware scheduling can reduce unnecessary federated learning activity while maintaining intrusion detection accuracy of approximately **77–78%** in a simulated distributed IoT environment.
