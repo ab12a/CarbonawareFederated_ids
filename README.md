@@ -2,7 +2,8 @@
 
 ## Project Overview
 
-This repository contains the implementation developed for the undergraduate dissertation:
+This repository contains the implementation developed for the MSc Computer Science research project:
+
 
 **Carbon-Aware Federated Learning for Energy-Efficient Intrusion Detection in Distributed IoT Networks**
 
@@ -153,9 +154,10 @@ CarbonawareFederated_ids/
 
 ---
 
-## Dissertation
+## Project
 
-This repository accompanies the undergraduate dissertation:
+This repository accompanies the MSc Computer Science project:
+
 
 **Carbon-Aware Federated Learning for Energy-Efficient Intrusion Detection in Distributed IoT Networks**
 
