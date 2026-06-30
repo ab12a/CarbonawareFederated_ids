@@ -142,11 +142,11 @@ def run_federated_simulation():
     df = pd.DataFrame(results)
 
     df.to_csv(
-        "results/carbon_results.csv",
+        "results/federated_results.csv",
         index=False
     )
 
-    # ---------------- FIGURE 9 ----------------
+    
     colors = []
 
     for d in decisions:
@@ -185,7 +185,7 @@ def run_federated_simulation():
 
     plt.close()
 
-    # ---------------- FIGURE 10 ----------------
+    
     if len(round_accuracies) > 0:
 
         plt.figure(figsize=(8, 5))
